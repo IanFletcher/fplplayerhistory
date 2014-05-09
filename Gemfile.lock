@@ -169,6 +169,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy (= 2.4.2)
+  nokogiri (= 1.6.1)
   pg (= 0.17.1)
   rails (= 4.0.0)
   rails_12factor (= 0.0.2)

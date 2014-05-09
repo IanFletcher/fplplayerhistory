@@ -1,4 +1,7 @@
 Fplplayerhistory::Application.routes.draw do
+  get "scrapers/launch"
+
+  match 'scrapers/launch' => 'scrapers#start', :via => :post, as: 'scraper_start'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

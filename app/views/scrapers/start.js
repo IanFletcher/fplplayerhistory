@@ -1,0 +1,1 @@
+$("#ajaxmessage").append("in JS")
