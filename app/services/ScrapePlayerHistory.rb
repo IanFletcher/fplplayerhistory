@@ -8,8 +8,6 @@ class ScrapePlayerHistory
 	require 'json'
 
 	def initialize(full_scrape)
-		@player_attr = 
-		  {:web_name => :name, :first_name => :firstname, :second_name => :surname}
 		player_iterator
 	end
 	def player_iterator
@@ -17,16 +15,16 @@ class ScrapePlayerHistory
 		fplplayer_id = 1
 		while player || fplplayer_id == 1 do
 			player = webcontent(fplplayer_id)
-			player_id = extract(player , fplplayer_id)
+			player_id = extract_player(player , fplplayer_id)
 			extract_history(player, player_id) if player_id
 			fplplayer_id += 1
 			player = nil if fplplayer_id == 10 
 		end
 	end
-	def extract(player, fplplayer_id)
+	def extract_player(player, fplplayer_id)
 		new_player = {:fplplayer_id => fplplayer_id}
-		 @player_attr.keys.each do |att|
-			new_player[@player_attr[att]] = player[att.to_s]
+		 player_attr.keys.each do |att|
+			new_player[player_attr[att]] = player[att.to_s]
 		end
 		new_player[:club_id] = club_check(player["team_name"])
 		create_player(new_player)
@@ -89,5 +87,8 @@ class ScrapePlayerHistory
 	end
 	def create_player_history(plyhist)
 		PlayerHistory.create(plyhist)
+	end
+	def player_attr
+		{:web_name => :name, :first_name => :firstname, :second_name => :surname}
 	end
 end

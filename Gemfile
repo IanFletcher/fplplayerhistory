@@ -26,6 +26,7 @@ group :test do
   gem 'selenium-webdriver', '2.38.0'
   gem 'capybara', '2.1.0'
   gem 'launchy', '2.4.2'
+  gem 'fakeweb', '1.3.0'
 end
 
 group :production do
