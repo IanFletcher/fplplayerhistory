@@ -43,7 +43,7 @@ class ScrapePlayerHistory
 			if player
 				player_id = extract_player(player , fplplayer_id) 
 				extract_history(player, player_id, 0) if player_id
-		#		player = nil if fplplayer_id == 10
+	#			player = nil if fplplayer_id == 10
 			end
 			fplplayer_id += 1
 		end
@@ -72,7 +72,7 @@ class ScrapePlayerHistory
 		ply.id
 	end
 	def slice_position(position)
-		position[1]
+		position[0]
 	end
 	def webcontent(fplplayer_id)
 		begin

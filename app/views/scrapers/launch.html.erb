@@ -3,7 +3,8 @@
 
 <table id="scraper">
 	<tbody id="scraper_attr"><%= render 'scraper', scraper:@scraper %>
-		<%= form_tag(scraper_start_path, method: :post, remote: :true) do %>
+		<%= form_tag(scraper_start_path, method: :post, remote: :true, 
+				class:'scrapeform') do %>
 			<tr>
 				<td><%= label_tag "Full Scrape" %></td>
 				<td><%= check_box_tag :full_scrape, 1, checked = true %></td>
@@ -11,7 +12,8 @@
 			<tr></tr>
 			<tr>
 				<td></td>
-				<td><%= submit_tag "Activate Scraper", class: "form_submit" %></td>
+				<td><%= submit_tag "Activate Scraper", class: "form_submit" %>
+					  <%=image_tag("soccerball.gif", size:"44", class:"soccerball") %></td>
 			</tr>
 		<% end %>
 	</tbody>
