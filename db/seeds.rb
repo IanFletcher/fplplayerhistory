@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-scraper = Scraper.create(base_path: 'http://fantasy.premierleague.com/web/api/elements/', times_run:0, number_of_players:0)
+scraper = Scraper.create(base_path: 'http://fantasy.premierleague.com/web/api/elements/', times_run:0, number_of_players:0, season:'2014')

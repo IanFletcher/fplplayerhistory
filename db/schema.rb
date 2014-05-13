@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508074759) do
+ActiveRecord::Schema.define(version: 20140512035059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "clubs", force: true do |t|
     t.string   "name",             limit: 30
+    t.string   "shortname",        limit: 3
     t.integer  "predicted_finish", limit: 2
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -55,22 +56,31 @@ ActiveRecord::Schema.define(version: 20140508074759) do
   add_index "player_histories", ["player_id"], name: "index_player_histories_on_player_id", using: :btree
 
   create_table "players", force: true do |t|
-    t.string   "name",         limit: 30
-    t.string   "firstname",    limit: 30
-    t.string   "surname",      limit: 30
+    t.string   "name",          limit: 30
+    t.string   "firstname",     limit: 30
+    t.string   "surname",       limit: 30
     t.integer  "club_id"
-    t.integer  "fplplayer_id", limit: 2
+    t.integer  "fplplayer_id",  limit: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "season",        limit: 4
+    t.string   "position",      limit: 1
+    t.integer  "selected"
+    t.integer  "transfers_out"
+    t.integer  "transfers_in"
+    t.integer  "total_points",  limit: 2
+    t.integer  "cost_start",    limit: 2
+    t.integer  "cost_now",      limit: 2
   end
 
   create_table "scrapers", force: true do |t|
     t.string   "base_path"
     t.integer  "times_run"
-    t.integer  "duration_minutes"
+    t.integer  "duration"
     t.integer  "number_of_players"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "season",            limit: 4
   end
 
 end

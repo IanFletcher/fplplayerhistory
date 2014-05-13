@@ -2,13 +2,7 @@
 <h2> Welcome to Player Scraper <h2>
 
 <table id="scraper">
-	<body>
-		<% @scraper.attributes.select{|k,v| k != 'id'}.each do |k,v| %>
-			<tr>
-				<td><%= label_tag k, k.titleize %></td>
-				<td><%= v %></td>
-			</tr>
-		<% end %>
+	<tbody id="scraper_attr"><%= render 'scraper', scraper:@scraper %>
 		<%= form_tag(scraper_start_path, method: :post, remote: :true) do %>
 			<tr>
 				<td><%= label_tag "Full Scrape" %></td>
@@ -16,8 +10,9 @@
 			</tr>
 			<tr></tr>
 			<tr>
-				<td><%= submit_tag "Activate Scraper" %></td>
+				<td></td>
+				<td><%= submit_tag "Activate Scraper", class: "form_submit" %></td>
 			</tr>
 		<% end %>
-	</body>
+	</tbody>
 </table>

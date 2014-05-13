@@ -3,7 +3,7 @@ class CreateScrapers < ActiveRecord::Migration
     create_table :scrapers do |t|
       t.string :base_path
       t.integer :times_run
-      t.integer :duration_minutes
+      t.integer :duration
       t.integer :number_of_players
 
       t.timestamps

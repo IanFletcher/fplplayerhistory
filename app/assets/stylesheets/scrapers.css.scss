@@ -16,9 +16,25 @@
 	td
 	{
 		padding-left:10px;
+		.form_submit
+		{
+			color:blue;
+			font-size:22px;
+		};
 	};
 };
 
+.notice
+{
+	font-size:24px;
+	color:green;
+}
+
+.alert
+{
+	font-size:24px;
+	color:red;
+}
 
 
 

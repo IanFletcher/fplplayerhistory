@@ -1,0 +1,6 @@
+<% scraper.attributes.select{|k,v| k != 'id'}.each do |k,v| %>
+	<tr class='scraperdetails'>
+		<td><%= label_tag k, k.titleize %></td>
+		<td><%= v %></td>
+	</tr>
+<% end %>
