@@ -1,5 +1,6 @@
 ready = ->
   pietop10()
+  ajaxpaginate()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
@@ -35,4 +36,9 @@ seriesobj = (ply) ->
       [ply.total_points, ply.cost_start, ply.cost_now]
   }
 
+
+ajaxpaginate ->
+ jQuery("div.pagination a").click(->
+    jQuery.ajax({ url: this.href })
+    return false)
 

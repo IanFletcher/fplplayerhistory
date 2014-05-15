@@ -2,5 +2,6 @@
 
 <%= content_tag :div, "",id:"top10", data: {players:@data} %> 
 
-</br></br>
-<%= render "player_table", players: @data %>
+<div id="allplayers">
+	<%= render "player_table", players: @players %>
+</div>
