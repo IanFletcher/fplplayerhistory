@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'nokogiri', 	'1.6.1'
+gem 'will_paginate', '3.0.5'
 
 
 group :doc do

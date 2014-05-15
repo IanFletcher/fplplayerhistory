@@ -1,0 +1,35 @@
+<table id='playertable'>
+	<thead>
+		<tr>
+			<th>Id</th> 
+			<th>Name</th> 
+			<th>Club</th> 
+			<th>Position</th> 
+			<th>Season</th> 
+			<th>Selected</th> 
+			<th>Transfers Out</th> 
+			<th>Transfers In</th>
+			<th>Total Points</th>
+			<th>Start Cost</th> 
+			<th>Cost Now</th> 
+		</tr>
+	</thead>
+	<tbody>
+		<% players.each do |ply| %>
+			<tr class = "<%= cycle('odd', 'even') %>">
+				<td><%= ply.id %></td> 
+				<td><%= ply.name %></td>
+				<td>not implemented</td>
+				<td><%= ply.position %></td>
+				<td><%= ply.season %></td>
+				<td><%= ply.selected %></td>
+				<td><%= ply.transfers_out %></td>
+				<td><%= ply.transfers_in %></td>
+				<td><%= ply.total_points %></td>
+				<td><%= ply.cost_start %></td>
+				<td><%= ply.cost_now %></th>
+			</tr>
+		<% end %>
+	</tbody>
+
+</table>
