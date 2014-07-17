@@ -1,0 +1,21 @@
+<table id=select_players>
+	<thead>
+		<th>Player Id</th>
+		<th>Name</th>
+	</thead>
+	<tbody>
+		<%= form_tag chosen_players_path, method: :put do %>
+			<% 0.upto(9) do |i| %>
+				<tr class= '<%= "splayer#{i} splayer" %>' >
+					<td><%= text_field_tag "ids[]", "", readonly: true,
+							class:"s_id#{i} s_id" %></td>
+					<td><%= text_field_tag "names[]", "", readonly: true,
+							class:"s_name#{i} s_name" %></td>
+				</tr>
+				<% end %>
+			<tr>
+				<td><%= submit_tag "Apply to Graph", class:'chosen_ones' %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

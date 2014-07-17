@@ -16,9 +16,9 @@
 	</thead>
 	<tbody>
 		<% players.each do |ply| %>
-			<tr class = "<%= cycle('odd', 'even') %>">
-				<td><%= ply.id %></td> 
-				<td><%= ply.name %></td>
+			<tr class = "<%= cycle('odd', 'even') %> person">
+				<td class="player_id"><%= ply.id %></td> 
+				<td class="player_name"><%= ply.name %></td>
 				<td>not implemented</td>
 				<td><%= ply.position %></td>
 				<td><%= ply.season %></td>
@@ -34,6 +34,7 @@
 </table>
 </br>
 <div class="digg_pagination">
-	<%= will_paginate players, :class => "pagination ajax" %> 
+	<%= will_paginate players, :class => "pagination ajax", 
+		remote: true%> 
 </div>
 
