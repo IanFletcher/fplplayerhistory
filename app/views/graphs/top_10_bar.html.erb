@@ -1,0 +1,19 @@
+<% provide(:title, "Top 10 Bar") %>
+
+<table id='player_venue'>
+	<tbody>
+		<tr>
+			<td><%= content_tag :div, "",id:"top10", 
+				data: {players:playerdata} %></td>
+		</tr>
+		<tr>
+			<td><div id="allplayers"> 
+						<%= render "player_table", players: @players %>
+					</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<div id="sidebar">
+	<%= render "chosen_players" %>
+</div>

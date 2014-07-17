@@ -7,9 +7,11 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '4.2.1'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'nokogiri', 	'1.6.1'
+gem 'will_paginate', '3.0.5'
 
 
 group :doc do
@@ -20,6 +22,7 @@ group :development, :test do
   gem 'rspec-rails', '2.14.0'
   gem 'factory_girl_rails', '4.3.0'
   gem 'spork-rails', '4.0.0'
+  gem 'pry-rails', '0.3.2'
 end
 
 group :test do
