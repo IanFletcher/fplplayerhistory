@@ -1,14 +1,16 @@
 ready = ->
-  $("div.pagination a").attr('data-remote', 'true')
+  if $('.top_10_bar').size > 0
+    $("div.pagination a").attr('data-remote', 'true') 
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
 $(document).on('ajaxComplete', ready)
 
 readynoajax = ->
-  ajaxPaginate()
-  pietop10()
-  choosePlayer()
+  if $('.top_10_bar').size > 0
+    ajaxPaginate()
+    pietop10()
+    choosePlayer()
 
 $(document).ready(readynoajax)
 $(document).on('page:load', readynoajax)

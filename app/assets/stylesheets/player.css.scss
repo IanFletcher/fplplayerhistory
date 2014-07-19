@@ -1,3 +1,48 @@
 // Place all the styles related to the player controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.playerComparison {
+	.even {
+		background:lightgrey;
+	}
+	th {
+		text-align:left;
+		background:lightblue;
+		padding-left:5px;
+		padding-right:5px;
+	}
+	td {
+		text-align:right;	
+		padding-left:5px;
+		padding-right:5px;
+	}
+	td.name {
+		text-align:left;	
+	}
+	table{
+		border-collapse:collapse;
+	}
+
+	table, th, td {
+  	border: 1px solid black;
+	} 
+	th:hover {
+		background-color:yellow;
+	} 
+	input.submitFilter {
+	#	background:lightblue;
+		width:120px;
+		font-weight: bold;
+		font-size:14px;
+	}
+	.playercontainer {
+		max-height:500px;
+		overflow:auto;
+		width:800px;
+	}
+	tbody.scrollingBody {
+  	overflow-y: auto;
+  	width:100%;
+  	height: 300px;
+	}
+}
