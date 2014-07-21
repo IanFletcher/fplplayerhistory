@@ -35,14 +35,26 @@
 		font-weight: bold;
 		font-size:14px;
 	}
-	.playercontainer {
-		max-height:500px;
-		overflow:auto;
-		width:800px;
+	//.playercontainer {
+	//	max-height:500px;
+	//	overflow:auto;
+//		width:800px;
+//	}
+	.fixedHeader {
+		position:absolute;
+		z-index:9;
+		width:830px;
 	}
-	tbody.scrollingBody {
-  	overflow-y: auto;
-  	width:100%;
-  	height: 300px;
+	.scrollBlock {
+		width:16px;
 	}
+	// thead {
+	// 	display:block;
+	// }
+	// tbody.scrollingBody {
+ //  	overflow-y: auto;
+ //  	width:100%;
+ //  	height: 300px;
+//  	display:block;
+//	}
 }
