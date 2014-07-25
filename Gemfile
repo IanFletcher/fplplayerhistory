@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'nokogiri', 	'1.6.1'
 gem 'will_paginate', '3.0.5'
+gem 'font-awesome-rails', '4.1.0.0'
 
 
 group :doc do

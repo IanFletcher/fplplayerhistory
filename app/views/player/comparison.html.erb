@@ -1,7 +1,8 @@
 <div class="playerComparison">
 	<%= form_tag filter_path, class: 'playerFilter', remote: true do %>
-		<%= hidden_field_tag :player_order %>
+		<%= hidden_field_tag :player_order, value = nil, options = {class: 'player_order'} %>
 		<%= submit_tag :Submit, class: "submitFilter" %>
+		<button type="button" class="submitAlias">Submit</button>
 	<% end %>
 	<h1> Player Comparison </h1>
 	<div class='fixedHeader'>
@@ -9,39 +10,23 @@
 	<table class="table playerTable">
 		<thead>
 			<tr class='statsHeader'>
-				<th> Name </th>
-				<th> Points </th>
-				<th> Miniutes Played</th>
-				<th> Goals Scored</th>
-				<th> Own Goals </th>
-				<th> Penalty Saves </th> 
-			  <th> Penalty Missed </th> 
-				<th> Yellow Cards </th>
-				<th> Red Cards </th>
-				<th> Saves</th> 
-				<th> Bonus</th>
-				<th> ESP</th>
-				<th> Transfers</th>
+				<th class='name'> Name </th>
+				<th class='points'> Points </th>
+				<th class='miniutes_played'> Miniutes Played</th>
+				<th class='goals_scored'> Goals Scored</th>
+				<th class='own_goals'> Own Goals </th>
+				<th class='penalty_saves'> Penalty Saves </th> 
+			  <th class='penalty_missed'> Penalty Missed </th> 
+				<th class='yellow_cards'> Yellow Cards </th>
+				<th class='red_cards'> Red Cards </th>
+				<th class='saves'> Saves</th> 
+				<th class='bonus'> Bonus</th>
+				<th class='esp'> ESP</th>
+				<th class='net_transfers'> Transfers</th>
 			</tr>
 		</thead>
 		<tbody class='scrollingBody'>
-		<% @players.each do |ply| %>
-			<tr class = " <%= cycle("odd", "even") %>">
-				<td class="name"> <%= ply.name %></td>
-				<td> <%= ply.points %></td>
-				<td> <%= ply.miniutes_played %></td>
-				<td> <%= ply.goals_scored %></td>
-				<td> <%= ply.own_goals %></td>
-				<td> <%= ply.penalty_saves %></td>
-				<td> <%= ply.penalty_missed %></td>
-				<td> <%= ply.yellow_cards %></td>
-				<td> <%= ply.red_cards %></td>
-				<td> <%= ply.saves %></td>
-				<td> <%= ply.bonus %></td>
-				<td> <%= ply.esp %></td>
-				<td> <%= number_with_delimiter(ply.net_transfers) %></td>
-			</tr>
-		<% end %>
+		<%=	render partial: "player", locals: {players: @players} %>
 		</tbody>
 	</table>
 		</div>

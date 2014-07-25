@@ -3,51 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
 	if $('.playerComparison').length > 0
-#  	cloneHeader()
-#		check()
 		frozenhead()
+readynoajax = ->
+	if $('.playerComparison').length > 0
+		setupSubmit()
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+$(document).ready(
+	readynoajax
+	ready)
+$(document).on('page:load', 
+	readynoajax
+	ready)
 $(document).on('ajaxComplete', ready)
-
-
-
-headerCellWidth = ->
-	widthArray = []
-	$('.playerTable th').each(-> 
-		widthArray.push $(this).width())
-	#	widthArray.push $(this).text())
-#	alert(widthArray)
-#	$('.fixedHeader thead').eq(0).find('th').each((index, element)->
-#		$(element).css('width': 1))	
-	$('.fixedHeader thead').eq(0).find('th').each((index, element)->
-		$(element).css('width': widthArray[index]))
-#	$('tr').eq(1).find('td').each((index, element)->
-#		$(element).css('width', widthArray[index]))
-
-headerTheadWidth = ->
-	alert('header')
-	width = $('.playerTable thead').width()
-	alert('width is ' + width)
-	$('.fixedHeader thead').eq(0).css('width': width)
-
-cloneHeader = ->
-	cpy = $('thead').clone(true)
-	$(cpy).prependTo('.fixedHeader')
-	alert('here')
-	$('.fixHeader thead').eq(0).find('tr').append("<th></th>")
-#	headerTheadWidth()
-	headerCellWidth()
-#	$('.playerTable thead').hide()
-
-check = ->
-	$('.fixedHeader').on('click', -> 
-		widthArray = []
-		$('.playerTable th').each(-> 
-			widthArray.push $(this).width()
-			widthArray.push $(this).text())
-		alert(widthArray))
 
 frozenhead = ->
 	$(document).scroll(->
@@ -58,10 +25,63 @@ frozenhead = ->
 			translate($(".playerTable th"),0,0))
 
 translate = (element, x, y) ->
-	    translation = "translate(" + x + "px," + y + "px)"
-	    element.css(
-	        "transform": translation,
-	        "-ms-transform": translation,
-	        "-webkit-transform": translation,
-	        "-o-transform": translation,
-	        "-moz-transform": translation)
+  translation = "translate(" + x + "px," + y + "px)"
+  element.css(
+    "transform": translation,
+    "-ms-transform": translation,
+    "-webkit-transform": translation,
+    "-o-transform": translation,
+    "-moz-transform": translation)
+
+setupSubmit = ->
+	$('.submitAlias').off()
+	$('.submitAlias').off('th')
+	$('.submitFilter').hide()
+	$('.submitAlias').on('click', ->
+		$('.player_order').val(orderBy.makeArray())
+		$('.submitFilter').click()
+	)
+	$('th').on('click', (e)->
+		orderBy.combination(e, $(this).attr('class'))
+		$('.player_order').val(orderBy.makeArray())
+		$('.submitFilter').click()
+		e.stopPropagation()
+	)
+
+orderBy =
+	orders : []
+	ordersArray : []
+	makeArray : ->
+		@ordersArray = []
+		for order in @orders
+			for k, v of order
+				@ordersArray.push v
+		@ordersArray
+	combination : (e, stat) ->
+		if e.shiftKey
+			@update(stat)
+		else
+			unless @check(stat)
+				@remove() 
+				@add(stat)
+	remove : ->
+		@orders = []
+	add : (stat)->
+		order = {name : stat, direction : 'DESC'}
+		@orders.push order
+	update: (stat)->
+		unless @check(stat)
+			@add(stat)
+	check : (stat)->
+		changed = false
+		for row in @orders
+			if row.name == stat
+  			row.direction = @changeDirection(row)
+  			changed = true
+		changed
+	changeDirection : (order) ->
+		if order.direction == 'ASC'
+			order.direction = "DESC"
+		else
+			order.direction = 'ASC'
+
