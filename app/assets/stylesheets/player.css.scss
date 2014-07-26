@@ -19,6 +19,10 @@
 	td.name {
 		text-align:left;	
 	}
+	td, th {
+  white-space: nowrap;
+  overflow: hidden;
+	}
 	table{
 		border-collapse:collapse;
 	}
@@ -38,7 +42,6 @@
 	.fixedHeader {
 		position:absolute;
 		z-index:9;
-	//	width:830px;
 	}
 	.scrollBlock {
 		width:16px;
@@ -46,11 +49,5 @@
 	.submitAlias{
 		width:100px;
 		height:30px;
-	}
-	//awesome fonts
-	.fa-arrow-circle-down {
- //   color: #fff;
-//    text-shadow: 1px 1px 1px #ccc;
-    font-size: 10px;
 	}
 }

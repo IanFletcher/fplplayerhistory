@@ -15,6 +15,7 @@ class Player < ActiveRecord::Base
 		.joins("as p INNER JOIN player_histories as ph ON ph.player_id = p.id")
 		.select("p.id as id,p.name as name, 
 			sum(ph.points) as points, 
+			sum(round(round(ph.points,2)/round(ph.value,2),2)) as range_value,
 			sum(ph.miniutes_played) as miniutes_played, 
 			sum(ph.goals_scored) as goals_scored, 
 			sum(ph.assists) as assists, 

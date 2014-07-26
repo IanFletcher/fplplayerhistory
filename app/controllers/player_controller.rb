@@ -3,6 +3,9 @@ class PlayerController < ApplicationController
 		@players = Player.stats
 	end
 	def filter
+		if params[:venue]
+			extra_where = "ph.venue = '#{params[:venue]}'" if params[:venue] == 'H' or params[:venue] =='A'
+		end
 		if params[:player_order]
 			orders = params[:player_order].split(',')
 			if orders.size > 2
@@ -11,7 +14,9 @@ class PlayerController < ApplicationController
 				orders = [orders]
 			end
 			orders = orders.map{|order| order.join(" ")}.join(",")
-			@players = Player.stats.order(orders)
 		end
+		@players = Player.stats
+		@players = @players.order(orders) 	if defined?(orders)
+		@players = @players.where(extra_where) if defined?(extra_where)
 	end
 end

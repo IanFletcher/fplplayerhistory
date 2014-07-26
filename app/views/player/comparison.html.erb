@@ -1,6 +1,14 @@
 <div class="playerComparison">
 	<%= form_tag filter_path, class: 'playerFilter', remote: true do %>
 		<%= hidden_field_tag :player_order, value = nil, options = {class: 'player_order'} %>
+		<%= radio_button_tag(:venue, "A") %>
+		<%= label_tag(:venue_all, "All venues") %>
+		<%= radio_button_tag(:venue, "H") %>
+		<%= label_tag(:venue_home, "Home venue") %>
+		<%= radio_button_tag(:venue, "A") %>
+		<%= label_tag(:venue_away, "Away venue") %>
+
+
 		<%= submit_tag :Submit, class: "submitFilter" %>
 		<button type="button" class="submitAlias">Submit</button>
 	<% end %>
@@ -12,6 +20,7 @@
 			<tr class='statsHeader'>
 				<th class='name'> Name </th>
 				<th class='points'> Points </th>
+				<th class='range_value'>Range Value</th>
 				<th class='miniutes_played'> Miniutes Played</th>
 				<th class='goals_scored'> Goals Scored</th>
 				<th class='own_goals'> Own Goals </th>
