@@ -66,8 +66,10 @@ orderBy =
 				@add(stat)
 	remove : ->
 		@orders = []
+		$('.statsHeader th i').replaceWith(-> $(this).contents())
 	add : (stat)->
 		order = {name : stat, direction : 'DESC'}
+		@arrow(order)
 		@orders.push order
 	update: (stat)->
 		unless @check(stat)
@@ -84,4 +86,10 @@ orderBy =
 			order.direction = "DESC"
 		else
 			order.direction = 'ASC'
-
+		@arrow(order)
+		order.direction
+	arrow : (order)->
+		if order.direction is 'DESC'
+			$('.statsHeader th.' + order.name).html("<i class='fa fa-arrow-circle-down fa-fw'></i>" + $('.statsHeader th.' + order.name).text())
+		else
+			$('.statsHeader th.' + order.name).html("<i class='fa fa-arrow-circle-up fa-fw'></i>" + $('.statsHeader th.' + order.name).text())

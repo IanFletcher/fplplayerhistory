@@ -1,0 +1,17 @@
+<% players.each do |ply| %>
+	<tr class = " <%= cycle("odd", "even") %>">
+		<td class="name"> <%= ply.name %></td>
+		<td> <%= ply.points %></td>
+		<td> <%= ply.miniutes_played %></td>
+		<td> <%= ply.goals_scored %></td>
+		<td> <%= ply.own_goals %></td>
+		<td> <%= ply.penalty_saves %></td>
+		<td> <%= ply.penalty_missed %></td>
+		<td> <%= ply.yellow_cards %></td>
+		<td> <%= ply.red_cards %></td>
+		<td> <%= ply.saves %></td>
+		<td> <%= ply.bonus %></td>
+		<td> <%= ply.esp %></td>
+		<td> <%= number_with_delimiter(ply.net_transfers) %></td>
+	</tr>
+<% end %>
