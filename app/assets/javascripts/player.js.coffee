@@ -8,12 +8,10 @@ readynoajax = ->
 	if $('.playerComparison').length > 0
 		setupSubmit()
 
-$(document).ready(
-	readynoajax
-	ready)
-$(document).on('page:load', 
-	readynoajax
-	ready)
+$(document).ready(readynoajax)
+$(document).ready(ready)
+$(document).on('page:load', readynoajax)
+$(document).on('page:load', ready)
 $(document).on('ajaxComplete', ready)
 
 frozenhead = ->

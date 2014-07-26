@@ -20,8 +20,8 @@
 		text-align:left;	
 	}
 	td, th {
-  white-space: nowrap;
-  overflow: hidden;
+ 		white-space: nowrap;
+  	overflow: hidden;
 	}
 	table{
 		border-collapse:collapse;
@@ -33,19 +33,6 @@
 	th:hover {
 		background-color:yellow;
 	} 
-	input.submitFilter {
-	#	background:lightblue;
-		width:120px;
-		font-weight: bold;
-		font-size:14px;
-	}
-	.fixedHeader {
-		position:absolute;
-		z-index:9;
-	}
-	.scrollBlock {
-		width:16px;
-	}
 	.submitAlias{
 		width:100px;
 		height:30px;
