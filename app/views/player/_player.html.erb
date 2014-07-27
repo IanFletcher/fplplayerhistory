@@ -2,8 +2,13 @@
 	<tr class = " <%= cycle("odd", "even") %>">
 		<td class="name"> <%= ply.name %></td>
 		<td> <%= ply.points %></td>
-		<td> <%= ply.range_value %></td>
+		<td> <%= number_with_precision(ply.range_value, precision:2) %></td>
+		<td> <%= ply.cost_now %></td>
+		<td> <%= ply.position %></td>
 		<td> <%= ply.miniutes_played %></td>
+		<td> <%= ply.points_per_game %></td>
+		<td> <%= ply.points_per_min %></td>
+		<td> <%= number_with_precision(ply.games, precision:0) %></td>
 		<td> <%= ply.goals_scored %></td>
 		<td> <%= ply.own_goals %></td>
 		<td> <%= ply.penalty_saves %></td>

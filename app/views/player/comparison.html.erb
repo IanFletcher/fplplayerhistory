@@ -1,28 +1,42 @@
 <div class="playerComparison">
 	<%= form_tag filter_path, class: 'playerFilter', remote: true do %>
 		<%= hidden_field_tag :player_order, value = nil, options = {class: 'player_order'} %>
- 		<h3>Venue</h3>
-		<div class="venue_div">
-			<%= radio_button_tag(:venue, "A", true) %>
-			<%= label_tag(:venue_all, "All venues") %>
-			<%= radio_button_tag(:venue, "H") %>
-			<%= label_tag(:venue_home, "Home venue") %>
-			<%= radio_button_tag(:venue, "A") %>
-			<%= label_tag(:venue_away, "Away venue") %>
-		</end>
-		<h3>Position</h3>
-		<div class="venue_div">
-			<%= radio_button_tag(:position, "A", true) %>
-			<%= label_tag(:postion_all, "All") %>
-			<%= radio_button_tag(:position, "G") %>
-			<%= label_tag(:postion_goalie, "Goalie") %>
-			<%= radio_button_tag(:position, "D") %>
-			<%= label_tag(:postion_defender, "Defender") %>
-			<%= radio_button_tag(:position, "M") %>
-			<%= label_tag(:postion_midfielder, "Midfielder") %>
-			<%= radio_button_tag(:position, "S") %>
-			<%= label_tag(:postion_striker, "Striker") %>
-		</div>
+		<table class="playerControls">
+			<thead>
+				<tr>
+	 				<th>Venue</th>
+	 				<th>Position</th>
+	 			</tr>
+	 		</thead>
+	 		<tbody>
+	 			<tr>
+	 				<td>		
+						<div class="venue_div">
+							<%= radio_button_tag(:venue, "ALL", true) %>
+							<%= label_tag(:venue_all, "All venues") %>
+							<%= radio_button_tag(:venue, "H") %>
+							<%= label_tag(:venue_home, "Home venue") %>
+							<%= radio_button_tag(:venue, "A") %>
+							<%= label_tag(:venue_away, "Away venue") %>
+						</end>
+					</td>
+					<td>
+						<div class="venue_div">
+							<%= radio_button_tag(:position, "ALL", true) %>
+							<%= label_tag(:postion_all, "All") %>
+							<%= radio_button_tag(:position, "G") %>
+							<%= label_tag(:postion_goalie, "Goalie") %>
+							<%= radio_button_tag(:position, "D") %>
+							<%= label_tag(:postion_defender, "Defender") %>
+							<%= radio_button_tag(:position, "M") %>
+							<%= label_tag(:postion_midfielder, "Midfielder") %>
+							<%= radio_button_tag(:position, "F") %>
+							<%= label_tag(:postion_striker, "Striker") %>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		<%= submit_tag :Submit, class: "submitFilter" %>
 		<button type="button" class="submitAlias">Submit</button>
 	<% end %>
@@ -33,15 +47,20 @@
 		<thead>
 			<tr class='statsHeader'>
 				<th class='name'> Name </th>
-				<th class='points'> Points </th>
-				<th class='range_value'>Range Value</th>
-				<th class='miniutes_played'> Miniutes</th>
-				<th class='goals_scored'> Goals Scored</th>
-				<th class='own_goals'> Own Goals </th>
-				<th class='penalty_saves'> Penalty Saves </th> 
-			  <th class='penalty_missed'> Penalty Missed </th> 
-				<th class='yellow_cards'>Yellows</th>
-				<th class='red_cards'>Reds</th>
+				<th class='points'> Pts </th>
+				<th class='range_value'>pts/prc</th>
+				<th class='cost_now'>$ 2013</th>
+				<th class='position'>Position</th>
+				<th class='miniutes_played'> Mins</th>
+				<th class='points_per_game'>PtsPGm</th>
+				<th class='points_per_min'>PtsPMin</th>
+				<th class='games'>Games</th>
+				<th class='goals_scored'>Scored</th>
+				<th class='own_goals'>Own Gls</th>
+				<th class='penalty_saves'> Pen Svs </th> 
+			  <th class='penalty_missed'> Pen Mss </th> 
+				<th class='yellow_cards'>Yllw</th>
+				<th class='red_cards'>Rd</th>
 				<th class='saves'> Saves</th> 
 				<th class='bonus'> Bonus</th>
 				<th class='esp'> ESP</th>

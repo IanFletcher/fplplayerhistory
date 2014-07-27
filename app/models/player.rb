@@ -13,9 +13,10 @@ class Player < ActiveRecord::Base
 	scope :stats, ->(fstround = 1, lstround= 38) do
 		where("ph.round >= (?) and ph.round <= (?)",fstround,lstround)
 		.joins("as p INNER JOIN player_histories as ph ON ph.player_id = p.id")
-		.select("p.id as id,p.name as name, 
+		.select("p.id as id,p.name as name, p.position, 
+			round(p.cost_now,1)/10 as cost_now,
 			sum(ph.points) as points, 
-			sum(round(round(ph.points,2)/round(ph.value,2),2)) as range_value,
+			round(sum(round(ph.points*10, 2)/round(ph.value,2)),2) as range_value,
 			sum(ph.miniutes_played) as miniutes_played, 
 			sum(ph.goals_scored) as goals_scored, 
 			sum(ph.assists) as assists, 
@@ -29,8 +30,23 @@ class Player < ActiveRecord::Base
 			sum(ph.saves) as saves, 
 			sum(ph.bonus) as bonus, 
 			sum(ph.esp) as esp, 
-			sum(ph.net_transfers) as net_transfers")
-		.group("p.id")
+			sum(ph.net_transfers) as net_transfers,
+			round(sum(round(ph.miniutes_played,2)/80)) as games,
+			round(sum(case  
+				when ph.miniutes_played > 0 then round(ph.points,3)/ph.miniutes_played
+				else 0
+				end),2) as points_per_min,
+
+
+
+			round(case when sum(ph.points) > 0 then
+				round(sum(ph.points),2)/
+						sum(case
+							when ph.miniutes_played > 0 then 1
+							else 0
+			 			end)
+					else 0 end,2) as points_per_game")
+		.group("p.id, p.position, p.cost_now")
 	end
 	scope :by_name, ->(name) do
 		where("players.name = (?)", name)
