@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-	has_one :club
+	belongs_to :club
 	has_many :player_histories
 
 	scope :venue_split, ->(player_id) do 

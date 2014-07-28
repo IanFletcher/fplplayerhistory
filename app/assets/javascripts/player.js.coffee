@@ -37,11 +37,13 @@ setupSubmit = ->
 	$('.submitFilter').hide()
 	$('.submitAlias').on('click', ->
 		$('.player_order').val(orderBy.makeArray())
+		$('.scrollingBody').css('color', 'blue').fadeIn()
 		$('.submitFilter').click()
 	)
 	$('th').on('click', (e)->
 		orderBy.combination(e, $(this).attr('class'))
 		$('.player_order').val(orderBy.makeArray())
+		$('.scrollingBody').css('color', 'blue').fadeIn()
 		$('.submitFilter').click()
 		e.stopPropagation()
 	)
