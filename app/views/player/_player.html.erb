@@ -1,6 +1,7 @@
 <% players.each do |ply| %>
 	<tr class = " <%= cycle("odd", "even") %>">
 		<td class="name"> <%= ply.name %></td>
+		<td> <%= ply.clubname %></td>
 		<td> <%= ply.points %></td>
 		<td> <%= number_with_precision(ply.range_value, precision:2) %></td>
 		<td> <%= ply.cost_now %></td>
