@@ -37,6 +37,10 @@
 				</tr>
 			</tbody>
 		</table>
+		<div class="search">
+			<%= label_tag(:search, "Name Search:  ")%>
+			<%= text_field_tag :search %>
+		<div>
 		<%= submit_tag :Submit, class: "submitFilter" %>
 		<button type="button" class="submitAlias">Submit</button>
 	<% end %>

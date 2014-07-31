@@ -3,10 +3,8 @@ class PlayerController < ApplicationController
 		@players = Player.stats
 	end
 	def filter
-	#	if params[:venue]
 		@players = Player.stats
 		condition("ph.venue = '#{params[:venue]}'") if has_venue
-	#	end
 		condition("p.position = '#{params[:position]}'") if has_position
 		if params[:player_order]
 			orders = params[:player_order].split(',')
@@ -17,9 +15,8 @@ class PlayerController < ApplicationController
 			end
 			orders = orders.map{|order| order.join(" ")}.join(",")
 		end
-	#	@players = Player.stats
+		@players = @players.where("p.name ILIKE ?", "%#{params[:search]}%") if has_search
 		@players = @players.order(orders) 	if defined?(orders)
-	#	@players = @players.where(extra_where) if defined?(extra_where)
 	end
 
 	def has_venue
@@ -30,5 +27,8 @@ class PlayerController < ApplicationController
 	end
 	def condition(cond)
 		@players = @players.where(cond)
+	end
+	def has_search
+		params[:search] != ""
 	end
 end
