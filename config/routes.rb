@@ -8,6 +8,8 @@ Fplplayerhistory::Application.routes.draw do
   get "player/comparison", to: 'player#comparison', as: :comparison
   post "player/filter", to: 'player#filter', as: :filter
 
+  root 'player#comparison'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
