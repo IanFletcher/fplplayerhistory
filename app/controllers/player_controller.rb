@@ -4,6 +4,8 @@ class PlayerController < ApplicationController
 	end
 	def filter
 		@players = Player.stats(params[:rounds_from].to_i, params[:rounds_to].to_i)
+		@players = @players.where("p.cost_now >= (?) and p.cost_now <= (?)", 
+			(params[:price_from].to_f*10), (params[:price_to].to_f*10))
 		condition("ph.venue = '#{params[:venue]}'") if has_venue
 		condition("p.position = '#{params[:position]}'") if has_position
 		if params[:player_order]

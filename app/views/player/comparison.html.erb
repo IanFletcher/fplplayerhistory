@@ -37,7 +37,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div class="rounds_range">
+						<div class="range">
 							<div class="from"> 
 								<%= label_tag :rounds_from %>
 								<%= text_field_tag :rounds_from, 1,class:"rounds_from", readonly:true, size:3 %></div>
@@ -45,7 +45,20 @@
 								<%= label_tag :rounds_to %>
 								<%= text_field_tag :rounds_to, 38,class:"rounds_to", readonly:true, size: 3 %></div>
 							</div>
-						<div class='priceContainer'>
+						<div class='sliderContainer'>
+							<div class='roundsSlider'></div>
+						</div>
+					</td>
+					<td>
+						<div class="range">
+							<div class="from"> 
+								<%= label_tag :price_from %>
+								<%= text_field_tag :price_from, 3.0,class:"price_from", readonly:true, size:3 %></div>
+							 <div class="to"> 
+								<%= label_tag :price_to %>
+								<%= text_field_tag :price_to, 14.0,class:"price_to", readonly:true, size: 3 %></div>
+							</div>
+						<div class='sliderContainer'>
 							<div class='priceSlider'></div>
 						</div>
 					</td>

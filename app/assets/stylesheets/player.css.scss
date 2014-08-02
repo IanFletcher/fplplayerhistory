@@ -48,7 +48,7 @@
 			font-weight:bold;
 		}
 	}
-	.rounds_range {
+	.range {
 		padding-top: 5px;
 		padding-bottom: 5px;
 		input {
@@ -58,13 +58,13 @@
 	.from {
 		float:left;
 	}
-	.priceContainer {
+	.sliderContainer {
 		padding-right:5px;
 		padding-left:5px;
 		padding-bottom:7px;
 		padding-top:7px;
 	}
-	.priceSlider {
+	.roundsSlider, .priceSlider {
 		font-size:8px;
 	}
 	.ui-slider .ui-slider-handle { 
