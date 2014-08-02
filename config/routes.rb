@@ -5,6 +5,9 @@ Fplplayerhistory::Application.routes.draw do
   get "top_10_bar" => 'graphs#top_10_bar', as: :top_10_bar
   post "graphs/chosen_players", to: 'graphs#chosen_players', as: :chosen_players
 
+  get "player/comparison", to: 'player#comparison', as: :comparison
+  post "player/filter", to: 'player#filter', as: :filter
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,110 @@
+<div class="playerComparison">
+	<%= form_tag filter_path, remote: true, class: 'playerFilter' do %>
+		<%= hidden_field_tag :player_order, value = nil, options = {class: 'player_order'} %>
+		<table class="playerControls">
+			<thead>
+				<tr>
+	 				<th>Venue</th>
+	 				<th>Position</th>
+	 			</tr>
+	 		</thead>
+	 		<tbody>
+	 			<tr>
+	 				<td>		
+						<div class="venue_div">
+							<%= radio_button_tag(:venue, "ALL", true) %>
+							<%= label_tag(:venue_all, "All venues") %>
+							<%= radio_button_tag(:venue, "H") %>
+							<%= label_tag(:venue_home, "Home venue") %>
+							<%= radio_button_tag(:venue, "A") %>
+							<%= label_tag(:venue_away, "Away venue") %>
+						</end>
+					</td>
+					<td>
+						<div class="venue_div">
+							<%= radio_button_tag(:position, "ALL", true) %>
+							<%= label_tag(:postion_all, "All") %>
+							<%= radio_button_tag(:position, "G") %>
+							<%= label_tag(:postion_goalie, "Goalie") %>
+							<%= radio_button_tag(:position, "D") %>
+							<%= label_tag(:postion_defender, "Defender") %>
+							<%= radio_button_tag(:position, "M") %>
+							<%= label_tag(:postion_midfielder, "Midfielder") %>
+							<%= radio_button_tag(:position, "F") %>
+							<%= label_tag(:postion_striker, "Striker") %>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="range">
+							<div class="from"> 
+								<%= label_tag :rounds_from %>
+								<%= text_field_tag :rounds_from, 1,class:"rounds_from", readonly:true, size:3 %></div>
+							 <div class="to"> 
+								<%= label_tag :rounds_to %>
+								<%= text_field_tag :rounds_to, 38,class:"rounds_to", readonly:true, size: 3 %></div>
+							</div>
+						<div class='sliderContainer'>
+							<div class='roundsSlider'></div>
+						</div>
+					</td>
+					<td>
+						<div class="range">
+							<div class="from"> 
+								<%= label_tag :price_from %>
+								<%= text_field_tag :price_from, 3.0,class:"price_from", readonly:true, size:3 %></div>
+							 <div class="to"> 
+								<%= label_tag :price_to %>
+								<%= text_field_tag :price_to, 14.0,class:"price_to", readonly:true, size: 3 %></div>
+							</div>
+						<div class='sliderContainer'>
+							<div class='priceSlider'></div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="search">
+			<%= label_tag(:search, "Name Search:  ")%>
+			<%= text_field_tag :search %>
+		</div>
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		<%= submit_tag :Submit, class: "submitFilter" %>
+		<button type="button" class="submitAlias">Submit</button>
+	<% end %>
+	<h1> Player Comparison </h1>
+	<div class='fixedHeader'>
+		<div class='playercontainer'>
+	<table class="table playerTable">
+		<thead>
+			<tr class='statsHeader'>
+				<th class='name'> Name </th>
+				<th class='clubname'> Club </th>
+				<th class='points'> Pts </th>
+				<th class='range_value'>pts/prc</th>
+				<th class='cost_now'>$ 2013</th>
+				<th class='position'>Position</th>
+				<th class='miniutes_played'> Mins</th>
+				<th class='points_per_game'>PtsPGm</th>
+				<th class='points_per_min'>PtsPMin</th>
+				<th class='games'>Games</th>
+				<th class='goals_scored'>Scored</th>
+				<th class='own_goals'>Own Gls</th>
+				<th class='penalty_saves'> Pen Svs </th> 
+			  <th class='penalty_missed'> Pen Mss </th> 
+				<th class='yellow_cards'>Yllw</th>
+				<th class='red_cards'>Rd</th>
+				<th class='saves'> Saves</th> 
+				<th class='bonus'> Bonus</th>
+				<th class='esp'> ESP</th>
+				<th class='net_transfers'> Transfers</th>
+			</tr>
+		</thead>
+		<tbody class='scrollingBody'>
+		<%=	render partial: "player", locals: {players: @players} %>
+		</tbody>
+	</table>
+		</div>
+	</div>
+</div>
