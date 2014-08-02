@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require jquery.ui.all
 //= require turbolinks
 //= require_tree .
 //= require highcharts

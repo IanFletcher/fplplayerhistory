@@ -30,6 +30,9 @@
 	table, th, td {
   	border: 1px solid black;
 	} 
+	.playerFilter th {
+		width:500px;
+	}
 	.playerTable th:hover {
 		background-color:yellow;
 	} 
@@ -38,9 +41,38 @@
 		height:30px;
 	}
 	.search {
-		height:40px; 
+		height: 30px;
+		padding-top:5px;
+		padding-bottom:5px;
 		label {
 			font-weight:bold;
 		}
+	}
+	.rounds_range {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		input {
+			color:orange;
+		}
+	}
+	.from {
+		float:left;
+	}
+	.priceContainer {
+		padding-right:5px;
+		padding-left:5px;
+		padding-bottom:7px;
+		padding-top:7px;
+	}
+	.priceSlider {
+		font-size:8px;
+	}
+	.ui-slider .ui-slider-handle { 
+		height: 14px;
+		margin-top:-4px;
+		background:orange;
+	}
+	.ui-slider-range.ui-widget-header {
+    background: darkgrey;
 	}
 }

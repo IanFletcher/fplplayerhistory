@@ -1,5 +1,5 @@
 <div class="playerComparison">
-	<%= form_tag filter_path, class: 'playerFilter', remote: true do %>
+	<%= form_tag filter_path, remote: true, class: 'playerFilter' do %>
 		<%= hidden_field_tag :player_order, value = nil, options = {class: 'player_order'} %>
 		<table class="playerControls">
 			<thead>
@@ -35,12 +35,28 @@
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<div class="rounds_range">
+							<div class="from"> 
+								<%= label_tag :rounds_from %>
+								<%= text_field_tag :rounds_from, 1,class:"rounds_from", readonly:true, size:3 %></div>
+							 <div class="to"> 
+								<%= label_tag :rounds_to %>
+								<%= text_field_tag :rounds_to, 38,class:"rounds_to", readonly:true, size: 3 %></div>
+							</div>
+						<div class='priceContainer'>
+							<div class='priceSlider'></div>
+						</div>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 		<div class="search">
 			<%= label_tag(:search, "Name Search:  ")%>
 			<%= text_field_tag :search %>
-		<div>
+		</div>
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 		<%= submit_tag :Submit, class: "submitFilter" %>
 		<button type="button" class="submitAlias">Submit</button>
 	<% end %>

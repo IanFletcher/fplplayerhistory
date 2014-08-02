@@ -3,7 +3,7 @@ class PlayerController < ApplicationController
 		@players = Player.stats
 	end
 	def filter
-		@players = Player.stats
+		@players = Player.stats(params[:rounds_from].to_i, params[:rounds_to].to_i)
 		condition("ph.venue = '#{params[:venue]}'") if has_venue
 		condition("p.position = '#{params[:position]}'") if has_position
 		if params[:player_order]

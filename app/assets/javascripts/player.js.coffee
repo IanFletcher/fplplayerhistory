@@ -35,6 +35,15 @@ setupSubmit = ->
 	$('.submitAlias').off()
 	$('.submitAlias').off('th')
 	$('.submitFilter').hide()
+	$('.priceSlider').slider(
+		range: true
+		min: 1
+		max: 38
+		values: [ 1, 38 ]
+		slide: ( event, ui )->
+			$(".rounds_from").val(ui.values[0])
+			$(".rounds_to").val(ui.values[1])
+	)
 	$('.submitAlias').on('click', ->
 		$('.player_order').val(orderBy.makeArray())
 		$('.scrollingBody').css('color', 'blue').fadeIn()
