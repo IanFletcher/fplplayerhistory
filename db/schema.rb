@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512035059) do
+ActiveRecord::Schema.define(version: 20140803020800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140512035059) do
     t.integer  "fplplayer_id",  limit: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "season",        limit: 4
+    t.string   "season",        limit: 9
     t.string   "position",      limit: 1
     t.integer  "selected"
     t.integer  "transfers_out"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20140512035059) do
     t.integer  "number_of_players"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "season",            limit: 4
+    t.string   "season",            limit: 9
   end
 
 end
